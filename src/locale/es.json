@@ -1,0 +1,12 @@
+{
+    "floor": "Planta",
+    "room": "Sala",
+    "rooms": "Salas",
+    "maxCapacity": "Capacidad máxima",
+    "occupation": "Ocupación",
+    "actions": {
+        "add": "Añadir",
+        "modify": "Modificar",
+        "delete": "Eliminar"
+    }
+}

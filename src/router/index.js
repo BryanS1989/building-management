@@ -7,11 +7,11 @@ const router = createRouter({
         {
             path: '/',
             redirect: (to) => {
-                return 'rooms';
+                return 'rooms/1';
             },
         },
         {
-            path: '/rooms',
+            path: '/rooms/:floor',
             name: 'roomsList',
             component: RoomsView,
         },

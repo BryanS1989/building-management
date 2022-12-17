@@ -30,7 +30,7 @@ export default {
             console.log('[RoomList] [addRoom()]');
         },
         modifyRoom(room) {
-            console.log('[RoomList] [modifyRoom()] room: ' + room);
+            console.log('[RoomList] [modifyRoom()] room: ', room);
         },
         deleteRoom(room) {
             console.log('[RoomList] [deleteRoom()] room: ' + room);
@@ -107,7 +107,7 @@ export default {
             <footer class="room__actions">
                 <button
                     class="form__button form__button--primary"
-                    @click="modifyRoom(room.number)"
+                    @click="modifyRoom(room)"
                 >
                     <font-awesome-icon icon="fa-regular fa-pen-to-square" />
                     {{ $t('actions.modify') }}

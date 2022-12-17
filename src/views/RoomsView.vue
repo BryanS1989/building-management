@@ -43,9 +43,6 @@ export default {
 
 <template>
     <main>
-        <RoomList
-            :selected-floor="selectedFloor"
-            :rooms="rooms"
-        ></RoomList>
+        <RoomList></RoomList>
     </main>
 </template>

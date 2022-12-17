@@ -14,6 +14,8 @@ import {
     faPlusSquare,
 } from '@fortawesome/free-regular-svg-icons';
 
+import { store } from './store/rooms.store';
+
 library.add(faTrashCan, faPenToSquare, faPlusSquare);
 
 const i18n = createI18n({
@@ -27,6 +29,7 @@ const app = createApp(App);
 
 app.use(router);
 app.use(i18n);
+app.use(store);
 
 app.component('font-awesome-icon', FontAwesomeIcon);
 

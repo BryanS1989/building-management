@@ -7,10 +7,14 @@ export default {
     },
     data() {
         return {
-            floors: [1, 2, 3],
+            floors: [],
         };
     },
     methods: {},
+    beforeMount() {
+        console.log('[APP] [beforeMount()] ');
+        this.floors = this.$store.getters.floors;
+    },
 };
 </script>
 

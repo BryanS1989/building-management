@@ -12,8 +12,8 @@ export default {
         addRoom() {
             console.log('[RoomList] [addRoom()]');
         },
-        modifyRoom() {
-            console.log('[RoomList] [modifyRoom()]');
+        modifyRoom(index) {
+            console.log('[RoomList] [modifyRoom()] index: ' + index);
         },
         deleteRoom(index) {
             console.log('[RoomList] [deleteRoom()] index: ' + index);
@@ -87,7 +87,7 @@ export default {
             <footer class="room__actions">
                 <button
                     class="form__button form__button--primary"
-                    @click="modifyRoom()"
+                    @click="modifyRoom(index)"
                 >
                     <font-awesome-icon icon="fa-regular fa-pen-to-square" />
                     {{ $t('actions.modify') }}

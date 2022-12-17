@@ -52,7 +52,7 @@ export default {
 <template>
     <HeaderMain
         :floors="floors"
-        @selected-floor="selectedFloor"
+        @selected="printFloor"
     />
 
     <main>

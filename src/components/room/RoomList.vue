@@ -37,7 +37,7 @@ export default {
         <section
             class="room"
             v-for="(room, index) in rooms"
-            :key="index"
+            :key="room.number"
         >
             <header class="rooms__header room__title">
                 <h3 class="room__text--bold">

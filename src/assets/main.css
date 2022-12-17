@@ -1,0 +1,85 @@
+@import './base.css';
+
+#app {
+    max-width: 90vw;
+    margin: 0 auto;
+    padding: 2rem;
+
+    font-weight: normal;
+}
+
+.rooms {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.rooms__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.room {
+    background-color: var(--color-primary);
+    border-radius: var(--border-radius-l);
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.5rem;
+}
+
+.room__title {
+    grid-column: 1 / 5;
+    grid-row: 1;
+}
+
+.room__body {
+    grid-column: 1 / 5;
+    grid-row: 2;
+}
+
+.room__actions {
+    grid-column: 3 / 5;
+    grid-row: 3;
+}
+
+.room__text--bold {
+    font-weight: bolder;
+}
+
+.form__input {
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--border-radius-m);
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.form__button {
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--border-radius-m);
+    padding: 0.5rem;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+.form__button--primary {
+    background-color: var(--color-secondary);
+    color: var(--text-secondary);
+}
+
+.form__button--secondary {
+    background-color: var(--color-background);
+    color: var(--text-primary);
+}
+
+.form__button:hover {
+    box-shadow: 0px 0px 7px gray;
+}
+
+.form__label--block {
+    display: block;
+}
+
+@media (min-width: 1024px) {
+}

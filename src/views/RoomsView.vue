@@ -1,16 +1,13 @@
 <script>
-import HeaderMain from '../components/HeaderMain.vue';
 import RoomList from '../components/room/RoomList.vue';
 
 export default {
     components: {
-        HeaderMain,
         RoomList,
     },
     data() {
         return {
             selectedFloor: 1,
-            floors: [1, 2, 3],
             rooms: [
                 {
                     number: 1,
@@ -40,21 +37,11 @@ export default {
             ],
         };
     },
-    methods: {
-        printFloor(selectedFloor) {
-            console.log('[App] [printFloor()] selectedFloor: ' + selectedFloor);
-            this.selectedFloor = selectedFloor;
-        },
-    },
+    methods: {},
 };
 </script>
 
 <template>
-    <HeaderMain
-        :floors="floors"
-        @selected="printFloor"
-    />
-
     <main>
         <RoomList
             :selected-floor="selectedFloor"

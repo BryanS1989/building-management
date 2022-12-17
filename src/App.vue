@@ -1,14 +1,22 @@
 <script>
+import HeaderMain from './components/HeaderMain.vue';
+
 export default {
-    components: {},
+    components: {
+        HeaderMain,
+    },
     data() {
-        return {};
+        return {
+            floors: [1, 2, 3],
+        };
     },
     methods: {},
 };
 </script>
 
 <template>
+    <HeaderMain :floors="floors" />
+
     <router-view></router-view>
 </template>
 

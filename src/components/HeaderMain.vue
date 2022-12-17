@@ -4,7 +4,7 @@ export default {
     props: {
         floors: Array,
     },
-    emits: ['selectedFloor'],
+    emits: ['selected'],
     data() {
         return {
             selectedFloor: 1,
@@ -20,7 +20,7 @@ export default {
         <nav>
             <select
                 v-model="selectedFloor"
-                @change="$emit('selectedFloor', selectedFloor)"
+                @change="$emit('selected', this.selectedFloor)"
                 class="form__input width--auto"
             >
                 <option

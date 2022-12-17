@@ -61,6 +61,8 @@ export default {
             :rooms="rooms"
         ></RoomList>
     </main>
+
+    <router-view></router-view>
 </template>
 
 <style scoped></style>

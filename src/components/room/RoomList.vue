@@ -1,16 +1,15 @@
 <script>
 export default {
     name: 'RoomList',
-    props: {
-        rooms: Array,
-    },
+    props: {},
     data() {
         return {
             selectedFloor: 0,
+            rooms: [],
         };
     },
     watch: {
-        $route(to, from) {
+        $route(to) {
             console.log('[RoomList] [$route] params', to.params);
             this.setSelectedFloor(to.params.floor);
         },
@@ -25,15 +24,26 @@ export default {
             );
             this.selectedFloor =
                 this.selectedFloor !== newFloor ? newFloor : this.selectedFloor;
+
+            this.rooms = this.$store.getters.roomsByFloor(this.selectedFloor);
         },
         addRoom() {
             console.log('[RoomList] [addRoom()]');
+            this.$store.dispatch('addRoom', { id: this.selectedFloor });
         },
         modifyRoom(room) {
             console.log('[RoomList] [modifyRoom()] room: ', room);
         },
         deleteRoom(room) {
-            console.log('[RoomList] [deleteRoom()] room: ' + room);
+            console.log('[RoomList] [deleteRoom()] room: ', room);
+            this.$store.dispatch('deleteRoom', {
+                floor: { id: this.selectedFloor },
+                room: {
+                    number: room.number,
+                    capacity: room.capacity,
+                    occupation: room.occupation,
+                },
+            });
         },
     },
     beforeMount() {
@@ -68,7 +78,7 @@ export default {
                 <font-awesome-icon
                     icon="fa-regular fa-trash-can"
                     class="pointer"
-                    @click="deleteRoom(room.number)"
+                    @click="deleteRoom(room)"
                 />
             </header>
 

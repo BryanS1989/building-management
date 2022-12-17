@@ -6,7 +6,7 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            redirect: (to) => {
+            redirect: () => {
                 return 'rooms/1';
             },
         },
@@ -17,7 +17,7 @@ const router = createRouter({
         },
         {
             path: '/:pathMatch(.*)*',
-            redirect: (to) => {
+            redirect: () => {
                 return '/';
             },
         },

@@ -15,6 +15,12 @@ const router = createRouter({
             name: 'roomsList',
             component: RoomsView,
         },
+        {
+            path: '/:pathMatch(.*)*',
+            redirect: (to) => {
+                return '/';
+            },
+        },
     ],
 });
 

@@ -12,11 +12,11 @@ export default {
         addRoom() {
             console.log('[RoomList] [addRoom()]');
         },
-        modifyRoom(index) {
-            console.log('[RoomList] [modifyRoom()] index: ' + index);
+        modifyRoom(roomIndex) {
+            console.log('[RoomList] [modifyRoom()] roomIndex: ' + roomIndex);
         },
-        deleteRoom(index) {
-            console.log('[RoomList] [deleteRoom()] index: ' + index);
+        deleteRoom(roomIndex) {
+            console.log('[RoomList] [deleteRoom()] roomIndex: ' + roomIndex);
         },
     },
 };
@@ -37,8 +37,7 @@ export default {
         <section
             class="room"
             v-for="(room, index) in rooms"
-            :key="room.number"
-            v-bind:value="room"
+            :key="index"
         >
             <header class="rooms__header room__title">
                 <h3 class="room__text--bold">

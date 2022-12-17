@@ -29,7 +29,6 @@ export default {
             class="form__button form__button--primary"
             @click="addRoom()"
         >
-            <font-awesome-icon icon="fa-regular fa-square-plus" />
             {{ $t('actions.add') }}
         </button>
     </header>

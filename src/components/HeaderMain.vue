@@ -4,11 +4,19 @@ export default {
     props: {
         floors: Array,
     },
-    emits: ['selected'],
+    emits: [],
     data() {
         return {
             selectedFloor: 1,
         };
+    },
+    methods: {
+        redirectTo() {
+            this.$router.push({
+                name: 'roomsList',
+                params: { floor: this.selectedFloor },
+            });
+        },
     },
 };
 </script>
@@ -20,7 +28,7 @@ export default {
         <nav>
             <select
                 v-model="selectedFloor"
-                @change="$emit('selected', this.selectedFloor)"
+                @change="redirectTo"
                 class="form__input width--auto"
             >
                 <option

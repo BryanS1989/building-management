@@ -10,6 +10,12 @@ export default {
             selectedFloor: 1,
         };
     },
+    watch: {
+        $route(to) {
+            console.log('[HeaderMain] [$route] params', to.params);
+            this.selectedFloor = to.params.floor;
+        },
+    },
     methods: {
         redirectTo() {
             this.$router.push({

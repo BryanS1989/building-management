@@ -2,22 +2,43 @@
 export default {
     name: 'RoomList',
     props: {
-        selectedFloor: Number,
         rooms: Array,
     },
     data() {
-        return {};
+        return {
+            selectedFloor: 0,
+        };
+    },
+    watch: {
+        $route(to, from) {
+            console.log('[RoomList] [$route] params', to.params);
+            this.setSelectedFloor(to.params.floor);
+        },
     },
     methods: {
+        setSelectedFloor(newFloor) {
+            console.log(
+                '[RoomList] [setSelectedFloor()] current Floor: ' +
+                    this.selectedFloor +
+                    ' newFloor: ' +
+                    newFloor
+            );
+            this.selectedFloor =
+                this.selectedFloor !== newFloor ? newFloor : this.selectedFloor;
+        },
         addRoom() {
             console.log('[RoomList] [addRoom()]');
         },
-        modifyRoom(roomIndex) {
-            console.log('[RoomList] [modifyRoom()] roomIndex: ' + roomIndex);
+        modifyRoom(room) {
+            console.log('[RoomList] [modifyRoom()] room: ' + room);
         },
-        deleteRoom(roomIndex) {
-            console.log('[RoomList] [deleteRoom()] roomIndex: ' + roomIndex);
+        deleteRoom(room) {
+            console.log('[RoomList] [deleteRoom()] room: ' + room);
         },
+    },
+    beforeMount() {
+        console.log('[RoomList] [beforeMount()] ', this.$route.params);
+        this.setSelectedFloor(this.$route.params.floor);
     },
 };
 </script>
@@ -36,7 +57,7 @@ export default {
     <article class="rooms">
         <section
             class="room"
-            v-for="(room, index) in rooms"
+            v-for="room in rooms"
             :key="room.number"
         >
             <header class="rooms__header room__title">
@@ -47,7 +68,7 @@ export default {
                 <font-awesome-icon
                     icon="fa-regular fa-trash-can"
                     class="pointer"
-                    @click="deleteRoom(index)"
+                    @click="deleteRoom(room.number)"
                 />
             </header>
 
@@ -86,7 +107,7 @@ export default {
             <footer class="room__actions">
                 <button
                     class="form__button form__button--primary"
-                    @click="modifyRoom(index)"
+                    @click="modifyRoom(room.number)"
                 >
                     <font-awesome-icon icon="fa-regular fa-pen-to-square" />
                     {{ $t('actions.modify') }}

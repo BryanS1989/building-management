@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-    <section class="room">
+    <section class="room animate__animated animate__bounceIn">
         <header class="rooms__header room__title">
             <h3 class="room__text--bold">
                 {{ $t('room') }} {{ roomInfo.number }}

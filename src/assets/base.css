@@ -101,3 +101,11 @@ fieldset {
 .pointer {
     cursor: pointer;
 }
+
+.zoom {
+    transition: transform 0.2s;
+}
+
+.zoom:hover {
+    transform: scale(1.2);
+}

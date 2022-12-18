@@ -16,6 +16,9 @@ export default {
             console.log('[RoomList] [$route] params', to.params);
             this.setSelectedFloor(to.params.floor);
         },
+        selectedFloor() {
+            this.rooms = this.$store.getters.roomsByFloor(this.selectedFloor);
+        },
     },
     methods: {
         setSelectedFloor(newFloor) {
@@ -25,10 +28,10 @@ export default {
                     ' newFloor: ' +
                     newFloor
             );
-            this.selectedFloor =
-                this.selectedFloor !== newFloor ? newFloor : this.selectedFloor;
 
-            this.rooms = this.$store.getters.roomsByFloor(this.selectedFloor);
+            if (this.selectedFloor !== newFloor) {
+                this.selectedFloor = newFloor;
+            }
         },
         addRoom() {
             console.log('[RoomList] [addRoom()]');
@@ -78,7 +81,7 @@ export default {
     <article class="rooms">
         <RoomCard
             v-for="room in rooms"
-            :key="room.number"
+            :key="selectedFloor + room.number"
             :room="room"
             @modify="modifyRoom"
             @delete="deleteRoom"

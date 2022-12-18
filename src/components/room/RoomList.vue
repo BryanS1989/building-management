@@ -78,7 +78,10 @@ export default {
         </button>
     </header>
 
-    <article class="rooms">
+    <article
+        class="rooms"
+        v-if="rooms.length > 0"
+    >
         <RoomCard
             v-for="room in rooms"
             :key="selectedFloor + room.number"
@@ -87,6 +90,16 @@ export default {
             @delete="deleteRoom"
         >
         </RoomCard>
+    </article>
+    <article
+        class="rooms__empty animate__animated animate__rubberBand"
+        v-else
+    >
+        <font-awesome-icon
+            icon="fa-solid fa-building-circle-exclamation"
+            class="fa-5x"
+        />
+        <h2>{{ $t('noRooms') }}</h2>
     </article>
 </template>
 

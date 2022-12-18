@@ -2,6 +2,7 @@
     "floor": "Planta",
     "room": "Sala",
     "rooms": "Salas",
+    "noRooms": "No hay salas en esta planta",
     "maxCapacity": "Capacidad máxima",
     "occupation": "Ocupación",
     "actions": {

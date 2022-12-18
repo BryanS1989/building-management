@@ -36,6 +36,14 @@ export default {
         },
         modifyRoom(room) {
             console.log('[RoomList] [modifyRoom()] room: ', room);
+            this.$store.dispatch('modifyRoom', {
+                floor: { id: this.selectedFloor },
+                room: {
+                    number: room.number,
+                    capacity: room.capacity,
+                    occupation: room.occupation,
+                },
+            });
         },
         deleteRoom(room) {
             console.log('[RoomList] [deleteRoom()] room: ', room);

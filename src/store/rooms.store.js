@@ -117,6 +117,21 @@ export const store = createStore({
 
             state.floors[floor.id].splice(indexRoomToDelete, 1);
         },
+        modifyRoom(state, { floor, room }) {
+            console.log(
+                '[store] [mutations] [modifyRoom] floor: ',
+                floor,
+                ' room: ',
+                room
+            );
+
+            const indexRoomToModify = this.getters.indexRoomsByFloor(
+                floor.id,
+                room.number
+            );
+
+            state.floors[floor.id].splice(indexRoomToModify, 1, room);
+        },
     },
     actions: {
         addRoom(context, floor) {
@@ -131,6 +146,15 @@ export const store = createStore({
                 room
             );
             context.commit('deleteRoom', { floor, room });
+        },
+        modifyRoom(context, { floor, room }) {
+            console.log(
+                '[store] [actions] [modifyRoom] floor: ',
+                floor,
+                ' room: ',
+                room
+            );
+            context.commit('modifyRoom', { floor, room });
         },
     },
 });

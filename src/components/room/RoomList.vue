@@ -106,10 +106,14 @@ export default {
                         {{ $t('occupation') }}
                     </label>
                     <input
-                        type="number"
+                        type="text"
                         id="occupation"
                         class="form__input"
                         :value="room.occupation"
+                    />
+                    <font-awesome-icon
+                        icon="fa-solid fa-percent"
+                        class="form_input--percent"
                     />
                 </fieldset>
             </form>

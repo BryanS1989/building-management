@@ -13,11 +13,14 @@ import {
     faPenToSquare,
     faPlusSquare,
 } from '@fortawesome/free-regular-svg-icons';
-import { faPercent } from '@fortawesome/free-solid-svg-icons';
+import { faPercent, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 import { store } from './store/rooms.store';
 
-library.add(faTrashCan, faPenToSquare, faPlusSquare, faPercent);
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+
+library.add(faTrashCan, faPenToSquare, faPlusSquare, faPercent, faSpinner);
 
 const i18n = createI18n({
     locale: 'es',
@@ -31,6 +34,7 @@ const app = createApp(App);
 app.use(router);
 app.use(i18n);
 app.use(store);
+app.use(VueAxios, axios);
 
 app.component('font-awesome-icon', FontAwesomeIcon);
 

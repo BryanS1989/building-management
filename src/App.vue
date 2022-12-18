@@ -1,19 +1,25 @@
 <script>
 import HeaderMain from './components/HeaderMain.vue';
+import LoadingComponent from './components/LoadingComponent.vue';
 
 export default {
     components: {
         HeaderMain,
+        LoadingComponent,
     },
     data() {
-        return {
-            floors: [],
-        };
+        return {};
+    },
+    computed: {
+        floors() {
+            console.log('[APP] [computed] [floors()] ');
+            return this.$store.getters.floors;
+        },
     },
     methods: {},
     beforeMount() {
         console.log('[APP] [beforeMount()] ');
-        this.floors = this.$store.getters.floors;
+        this.$store.dispatch('buildingInfo');
     },
 };
 </script>
@@ -21,7 +27,9 @@ export default {
 <template>
     <HeaderMain :floors="floors" />
 
-    <router-view></router-view>
+    <router-view v-if="floors.length > 0"></router-view>
+
+    <LoadingComponent></LoadingComponent>
 </template>
 
 <style scoped></style>

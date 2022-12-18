@@ -1,6 +1,9 @@
 <script>
+import RoomCard from './RoomCard.vue';
+
 export default {
     name: 'RoomList',
+    components: { RoomCard },
     props: {},
     data() {
         return {
@@ -65,69 +68,14 @@ export default {
     </header>
 
     <article class="rooms">
-        <section
-            class="room"
+        <RoomCard
             v-for="room in rooms"
             :key="room.number"
+            :room="room"
+            @modify="modifyRoom"
+            @delete="deleteRoom"
         >
-            <header class="rooms__header room__title">
-                <h3 class="room__text--bold">
-                    {{ $t('room') }} {{ room.number }}
-                </h3>
-
-                <font-awesome-icon
-                    icon="fa-regular fa-trash-can"
-                    class="pointer"
-                    @click="deleteRoom(room)"
-                />
-            </header>
-
-            <form class="room__body">
-                <fieldset>
-                    <label
-                        for="maxCapacity"
-                        class="room__text--bold form__label--block"
-                    >
-                        {{ $t('maxCapacity') }}
-                    </label>
-                    <input
-                        type="number"
-                        id="maxCapacity"
-                        class="form__input"
-                        :value="room.capacity"
-                    />
-                </fieldset>
-
-                <fieldset>
-                    <label
-                        for="occupation"
-                        class="room__text--bold form__label--block"
-                    >
-                        {{ $t('occupation') }}
-                    </label>
-                    <input
-                        type="text"
-                        id="occupation"
-                        class="form__input"
-                        :value="room.occupation"
-                    />
-                    <font-awesome-icon
-                        icon="fa-solid fa-percent"
-                        class="form_input--percent"
-                    />
-                </fieldset>
-            </form>
-
-            <footer class="room__actions">
-                <button
-                    class="form__button form__button--primary"
-                    @click="modifyRoom(room)"
-                >
-                    <font-awesome-icon icon="fa-regular fa-pen-to-square" />
-                    {{ $t('actions.modify') }}
-                </button>
-            </footer>
-        </section>
+        </RoomCard>
     </article>
 </template>
 

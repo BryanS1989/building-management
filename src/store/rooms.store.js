@@ -1,71 +1,17 @@
 import { createStore } from 'vuex';
+import BackendApi from '../services/room.service';
 
 export const store = createStore({
     state() {
         return {
-            floors: {
-                1: [
-                    {
-                        number: 1,
-                        capacity: 10,
-                        occupation: 90,
-                    },
-                ],
-                2: [
-                    {
-                        number: 1,
-                        capacity: 20,
-                        occupation: 50,
-                    },
-                    {
-                        number: 2,
-                        capacity: 200,
-                        occupation: 5,
-                    },
-                ],
-                3: [
-                    {
-                        number: 1,
-                        capacity: 300,
-                        occupation: 80,
-                    },
-                    {
-                        number: 2,
-                        capacity: 20,
-                        occupation: 10,
-                    },
-                    {
-                        number: 3,
-                        capacity: 50,
-                        occupation: 50,
-                    },
-                ],
-                4: [
-                    {
-                        number: 1,
-                        capacity: 300,
-                        occupation: 80,
-                    },
-                    {
-                        number: 2,
-                        capacity: 20,
-                        occupation: 10,
-                    },
-                    {
-                        number: 3,
-                        capacity: 50,
-                        occupation: 50,
-                    },
-                    {
-                        number: 4,
-                        capacity: 40,
-                        occupation: 40,
-                    },
-                ],
-            },
+            loading: false,
+            floors: {},
         };
     },
     getters: {
+        loading(state) {
+            return state.loading;
+        },
         floors(state) {
             return Object.keys(state.floors);
         },
@@ -92,6 +38,16 @@ export const store = createStore({
         },
     },
     mutations: {
+        loading(state, loading) {
+            state.loading = loading;
+        },
+        setBuildingInfo(state, floors) {
+            console.log(
+                '[store] [mutations] [setBuildingInfo] floors: ',
+                floors
+            );
+            state.floors = floors;
+        },
         addRoom(state, floor) {
             console.log('[store] [mutations] [addRoom] floor: ', floor);
             const room = {
@@ -134,6 +90,23 @@ export const store = createStore({
         },
     },
     actions: {
+        buildingInfo(context) {
+            context.commit('loading', true);
+            BackendApi.getBuildingInfo()
+                .then((response) => {
+                    console.log(
+                        '[store] [actions] [buildingInfo]',
+                        response.data
+                    );
+                    context.commit('setBuildingInfo', response.data);
+                    context.commit('loading', false);
+                })
+                .catch((error) => {
+                    console.log('[store] [actions] [buildingInfo]', error);
+                    context.commit('setBuildingInfo', {});
+                    context.commit('loading', false);
+                });
+        },
         addRoom(context, floor) {
             console.log('[store] [actions] [addRoom] floor', floor);
             context.commit('addRoom', floor);

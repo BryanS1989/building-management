@@ -4,7 +4,7 @@ Mini application to manage rooms in a building
 
 ## Live Demo
 
-Check our [Live Demo](https://vitejs.dev/config/).
+Check our [Live Demo](https://bryans1989-building-management.netlify.app/).
 
 ## Project Setup
 

@@ -20,6 +20,17 @@
     justify-content: space-between;
 }
 
+.rooms__empty {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.rooms__empty * {
+    margin: 2rem 1rem;
+}
+
 .room {
     background-color: var(--color-primary);
     border-radius: var(--border-radius-l);

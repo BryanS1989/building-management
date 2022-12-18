@@ -28,7 +28,7 @@ export default {
 
             <font-awesome-icon
                 icon="fa-regular fa-trash-can"
-                class="pointer"
+                class="pointer zoom"
                 @click="$emit('delete', roomInfo)"
             />
         </header>
@@ -71,7 +71,7 @@ export default {
 
         <footer class="room__actions">
             <button
-                class="form__button form__button--primary"
+                class="form__button form__button--primary zoom"
                 @click="$emit('modify', roomInfo)"
             >
                 <font-awesome-icon icon="fa-regular fa-pen-to-square" />

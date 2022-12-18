@@ -71,7 +71,7 @@ export default {
     <header class="rooms__header">
         <h2>{{ $t('floor') }} {{ selectedFloor }}</h2>
         <button
-            class="form__button form__button--primary"
+            class="form__button form__button--primary zoom"
             @click="addRoom()"
         >
             {{ $t('actions.add') }}

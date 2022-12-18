@@ -61,6 +61,18 @@
     right: 1rem;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input#occupation::-webkit-outer-spin-button,
+input#occupation::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type='number']#occupation {
+    -moz-appearance: textfield;
+}
+
 .form__button {
     border: 1px solid var(--color-secondary);
     border-radius: var(--border-radius-m);

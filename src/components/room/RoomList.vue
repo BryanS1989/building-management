@@ -92,7 +92,7 @@ export default {
         </RoomCard>
     </article>
     <article
-        class="rooms__empty animate__animated animate__rubberBand"
+        class="rooms__empty animate__animated animate__tada"
         v-else
     >
         <font-awesome-icon

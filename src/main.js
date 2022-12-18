@@ -13,14 +13,25 @@ import {
     faPenToSquare,
     faPlusSquare,
 } from '@fortawesome/free-regular-svg-icons';
-import { faPercent, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {
+    faPercent,
+    faSpinner,
+    faBuildingCircleExclamation,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { store } from './store/rooms.store';
 
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 
-library.add(faTrashCan, faPenToSquare, faPlusSquare, faPercent, faSpinner);
+library.add(
+    faTrashCan,
+    faPenToSquare,
+    faPlusSquare,
+    faPercent,
+    faSpinner,
+    faBuildingCircleExclamation
+);
 
 const i18n = createI18n({
     locale: 'es',

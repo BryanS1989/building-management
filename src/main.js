@@ -13,10 +13,11 @@ import {
     faPenToSquare,
     faPlusSquare,
 } from '@fortawesome/free-regular-svg-icons';
+import { faPercent } from '@fortawesome/free-solid-svg-icons';
 
 import { store } from './store/rooms.store';
 
-library.add(faTrashCan, faPenToSquare, faPlusSquare);
+library.add(faTrashCan, faPenToSquare, faPlusSquare, faPercent);
 
 const i18n = createI18n({
     locale: 'es',

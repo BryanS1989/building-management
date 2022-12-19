@@ -1,11 +1,13 @@
 <script>
 import HeaderMain from './components/HeaderMain.vue';
 import LoadingComponent from './components/shared/LoadingComponent.vue';
+import ModalComponent from './components/shared/ModalComponent.vue';
 
 export default {
     components: {
         HeaderMain,
         LoadingComponent,
+        ModalComponent,
     },
     data() {
         return {};
@@ -30,6 +32,8 @@ export default {
     <router-view v-if="floors.length > 0"></router-view>
 
     <LoadingComponent></LoadingComponent>
+
+    <ModalComponent></ModalComponent>
 </template>
 
 <style scoped></style>

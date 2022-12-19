@@ -52,7 +52,7 @@ npm run lint
 
 -   Puesto que en los requerimientos no se especificaba nada relacionado con rutas, en un principio se decide gestionar la navegación vía eventos, pero finalmente se decide hacer uso del router, de esta manera damos la sensación al usuario de que están ocurriendo cambios derivados de sus acciones. De esta manera hacemos que los componentes sean más independientes puesto que no necesitan que sea el componente padre quien les comparta la información si no que puede obtener la información directamente de la ruta, como en el caso de la planta seleccionada.
 
--   Derivado del uso de la librería animate.css para las animaciones se detecta que estas no se iniciaban correctamente al cambiar de plantas puesto que vue reutilizaba los componentes de cartas de salas que ya eran visible, por lo tanto estos no iniciaban la animación al contrario que los componentes carta nuevos. Para solventar esta situación se decide cambiar la clave unica de cada sala añadiendo también el identificador de la sala:
+-   Derivado del uso de la librería [animate.css] (https://animate.style/) para las animaciones se detecta que estas no se iniciaban correctamente al cambiar de plantas puesto que vue reutilizaba los componentes de cartas de salas que ya eran visible, por lo tanto estos no iniciaban la animación al contrario que los componentes carta nuevos. Para solventar esta situación se decide cambiar la clave unica de cada sala añadiendo también el identificador de la sala:
 
 ```
 # src\components\room\RoomList.vue

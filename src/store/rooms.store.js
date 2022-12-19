@@ -6,11 +6,22 @@ export const store = createStore({
         return {
             loading: false,
             floors: {},
+            showModal: false,
+            modal: {
+                icon: '',
+                message: '',
+            },
         };
     },
     getters: {
         loading(state) {
             return state.loading;
+        },
+        showModal(state) {
+            return state.showModal;
+        },
+        modal(state) {
+            return state.modal;
         },
         floors(state) {
             return Object.keys(state.floors);
@@ -40,6 +51,16 @@ export const store = createStore({
     mutations: {
         loading(state, loading) {
             state.loading = loading;
+        },
+        showModal(state, modal) {
+            state.showModal = true;
+            state.modal.icon = modal.type;
+            state.modal.message = modal.message;
+        },
+        hideModal(state) {
+            state.showModal = false;
+            state.modal.icon = '';
+            state.modal.message = '';
         },
         setBuildingInfo(state, floors) {
             console.log(
@@ -119,6 +140,11 @@ export const store = createStore({
                 room
             );
             context.commit('deleteRoom', { floor, room });
+
+            store.dispatch('showModal', {
+                type: 'correct',
+                message: 'Se ha eliminado correctamente la sala ' + room.number,
+            });
         },
         modifyRoom(context, { floor, room }) {
             console.log(
@@ -128,6 +154,23 @@ export const store = createStore({
                 room
             );
             context.commit('modifyRoom', { floor, room });
+
+            store.dispatch('showModal', {
+                type: 'correct',
+                message:
+                    'Se ha modificado correctamente la sala ' + room.number,
+            });
+        },
+        showModal(context, { type, message }) {
+            console.log(
+                '[store] [actions] [showModal] type: ',
+                type,
+                ' message: ',
+                message
+            );
+            context.commit('showModal', { type, message });
+
+            window.setTimeout(() => context.commit('hideModal'), 2500);
         },
     },
 });

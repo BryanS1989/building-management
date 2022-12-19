@@ -12,11 +12,14 @@ import {
     faTrashCan,
     faPenToSquare,
     faPlusSquare,
+    faCircleXmark,
 } from '@fortawesome/free-regular-svg-icons';
 import {
     faPercent,
     faSpinner,
     faBuildingCircleExclamation,
+    faCircleCheck,
+    faCircleExclamation,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { store } from './store/rooms.store';
@@ -30,7 +33,10 @@ library.add(
     faPlusSquare,
     faPercent,
     faSpinner,
-    faBuildingCircleExclamation
+    faBuildingCircleExclamation,
+    faCircleCheck,
+    faCircleExclamation,
+    faCircleXmark
 );
 
 const i18n = createI18n({

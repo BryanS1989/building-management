@@ -1,6 +1,6 @@
 <script>
 import HeaderMain from './components/HeaderMain.vue';
-import LoadingComponent from './components/LoadingComponent.vue';
+import LoadingComponent from './components/shared/LoadingComponent.vue';
 
 export default {
     components: {

@@ -24,7 +24,9 @@ export default {
         class="backdrop"
         v-if="show"
     >
-        <section class="modal animate__animated animate__zoomIn">
+        <section
+            class="modal animate__animated animate__zoomIn animate__faster"
+        >
             <font-awesome-icon
                 v-if="modal.icon === 'correct'"
                 icon="fa-solid fa-circle-check"

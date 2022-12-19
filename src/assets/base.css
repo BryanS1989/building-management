@@ -86,7 +86,12 @@ fieldset {
     width: auto !important;
 }
 
-.loader {
+.text--center {
+    text-align: center;
+}
+
+.loader,
+.backdrop {
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -108,4 +113,32 @@ fieldset {
 
 .zoom:hover {
     transform: scale(1.2);
+}
+
+.modal {
+    background-color: var(--color-primary);
+    border-radius: var(--border-radius-l);
+    padding: 2rem;
+    border: 1px solid var(--color-secondary);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 30rem;
+}
+
+.modal__icon {
+    margin: 1rem;
+}
+
+.modal__icon--check {
+    color: greenyellow;
+}
+
+.modal__icon--warning {
+    color: gold;
+}
+
+.modal__icon--error {
+    color: red;
 }

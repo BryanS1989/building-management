@@ -46,6 +46,8 @@ npm run lint
 
 -   Para facilitar el desarrollo del código CSS se decide hacer uso de la metodología BEM (Block\_\_Element--Modifier)
 
+-   Para mejorar la estructuración del proyecto se decide crear una carpeta 'shared' en la cual se irán añadiendo todos aquellos componentes básicos como loaders o modals.
+
 # Dificultades encontradas
 
 -   Puesto que en los requerimientos no se especificaba nada relacionado con rutas, en un principio se decide gestionar la navegación vía eventos, pero finalmente se decide hacer uso del router, de esta manera damos la sensación al usuario de que están ocurriendo cambios derivados de sus acciones. De esta manera hacemos que los componentes sean más independientes puesto que no necesitan que sea el componente padre quien les comparta la información si no que puede obtener la información directamente de la ruta, como en el caso de la planta seleccionada.

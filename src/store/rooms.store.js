@@ -131,6 +131,11 @@ export const store = createStore({
         addRoom(context, floor) {
             console.log('[store] [actions] [addRoom] floor', floor);
             context.commit('addRoom', floor);
+
+            store.dispatch('showModal', {
+                type: 'correct',
+                message: 'Se ha añadido correctamente la sala',
+            });
         },
         deleteRoom(context, { floor, room }) {
             console.log(
@@ -170,7 +175,7 @@ export const store = createStore({
             );
             context.commit('showModal', { type, message });
 
-            window.setTimeout(() => context.commit('hideModal'), 2500);
+            window.setTimeout(() => context.commit('hideModal'), 1300);
         },
     },
 });
